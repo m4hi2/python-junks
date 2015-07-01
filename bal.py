@@ -7,3 +7,4 @@ Here's what the fuck it does:
 drama = open("sketch.py") #Opens up the script, making it itterable
 for line in drama:
 	print (line)
+	print("bal")
