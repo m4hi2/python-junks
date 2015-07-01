@@ -20,4 +20,4 @@ try:
 except IOError:
   print_endl("Fuck, you forgot to put the thing(data file) in")
 
-
+#this is my playground for IO.
