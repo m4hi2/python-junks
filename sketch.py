@@ -1,12 +1,27 @@
-from print_endl import print_endl
+'''-----------------------------------------------------------------------------
+This file has evolved a lot, and now this is going to be my I/O play gorund;
+-----------------------------------------------------------------------------'''
+man = []
+other = []
 
-drama = open ("sketch.txt")
-for line in drama:
-        if not line.find (":") == -1:
-                (role, speech) = line.split (":", 1)
-                print_endl (role)
-                print_endl ("said:")
-                print_endl (speech)
-        else:
-                print_endl(line)
-               
+try:
+  data = open("sketch.txt")
+  for line in data:
+    try:
+      (role, line_spoken) = data.split(':', 1)
+      line_spoken = line_spoken.stip()
+      if role == "Man":
+        man.append(line_spoken)
+      elif role == "Other Man":
+        other.append(line_spoken)
+    except ValueError:
+      pass
+    data.close()
+except IOError:
+  print("Fuck, You forgot to put the file in")
+    
+    
+      
+      
+      
+      
