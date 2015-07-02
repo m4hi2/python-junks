@@ -19,17 +19,24 @@ try:
   print(man)
   print(other)
   try:
-    output = open("out.txt", "w")
-    print(man, file= output)
-    print(other, file = output)
-    output.close()
+    man_data = open("man_data.txt", "w")
+    other_data = open("other_man_data.txt", "w")
+    print(man, file= man_data)
+    print(other, file = other_data)
+    man_data.close()
+    other_data.close()
     print("\n", "Job done")
     
   except IOError:
+    man_data.close()
+    other_data.close()
     print("You fucker, where is my file in the system?")
     
+    
 except IOError:
+  data.close()
   print("Fuck, You forgot to put the file in")
+  
     
     
       
