@@ -28,16 +28,19 @@ try:
     print("\n", "Job done")
     
   except IOError:
+    print("You fucker, where is my file in the system?")
+
+  finally:
     man_data.close()
     other_data.close()
-    print("You fucker, where is my file in the system?")
     
     
 except IOError:
-  data.close()
   print("Fuck, You forgot to put the file in")
   
-    
+
+finally:
+  data.close()
     
       
       
