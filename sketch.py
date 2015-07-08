@@ -1,6 +1,8 @@
 '''-----------------------------------------------------------------------------
 This file has evolved a lot, and now this is going to be my I/O play gorund;
 -----------------------------------------------------------------------------'''
+import nester
+
 man = []
 other_man = []
 
@@ -17,9 +19,9 @@ try:
         pass
   try:
     with open("man_data.txt", 'w') as man_data:
-      print(man, file = man_data)
+      nester.print_lol(man,  of= man_data)
     with open("other_man_data.txt", 'w') as other_data:
-      print(other_man, file = other_data)
+      nester.print_lol(other_man, of = other_data)
   except IOError as irr:
     print("Where the fuck is the output file?" + str(irr))
 
