@@ -23,6 +23,9 @@ try:
 	sarah_sorted = sorted(sarah)
 
 	print(james_sorted)
+	print(julie_sorted)
+	print(mikey_sorted)
+	print(sarah_sorted)
 		
 
 except IOError as IOerr:
