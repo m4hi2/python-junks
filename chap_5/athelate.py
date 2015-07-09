@@ -17,15 +17,11 @@ try:
 		mikey.extend(mikey_data.readline().strip().split(","))
 		sarah.extend(sarah_data.readline().strip().split(","))
 
-	james_sorted = sorted(james)
-	julie_sorted = sorted(julie)
-	mikey_sorted = sorted(mikey)
-	sarah_sorted = sorted(sarah)
+	print(sorted(james))
+	print(sorted(julie))
+	print(sorted(mikey))
+	print(sorted(sarah))
 
-	print(james_sorted)
-	print(julie_sorted)
-	print(mikey_sorted)
-	print(sarah_sorted)
 		
 
 except IOError as IOerr:
