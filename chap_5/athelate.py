@@ -40,9 +40,13 @@ try:
 	mikey_sorted = unify(sorted(sanitized_mikey))
 	sarah_sorted = unify(sorted(sanitized_sarah))
 #Will print the 3 fastest entry
+	print("james:" ,end= '')
 	print(james_sorted[0:3])
+	print('julie:' ,end= "")
 	print(julie_sorted[0:3])
+	print("mikey:", end = '' )
 	print(mikey_sorted[0:3])
+	print("sarah:", end = "")
 	print(sarah_sorted[0:3])
 #This will handle any error during the file I/O
 except IOError as IOerr:
