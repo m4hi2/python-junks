@@ -16,6 +16,12 @@ def sanitize(time_string): #takes tring input then converts it to a '.' seperato
 		return time_string
 	(mins, secs) = time_string.split(splitter)
 	return mins + "." + secs 
+def unify(list):
+	unique_list = []
+	for i in list:
+		if i not in unique_list:
+			unique_list.append(i)
+	return unique_list
 
 try:
 	with open("james.txt") as james_data, open("julie.txt") as julie_data, open("mikey.txt") as mikey_data,open("sarah.txt") as sarah_data: #oepns all the files
@@ -28,11 +34,15 @@ try:
 	sanitized_julie = [float(sanitize(time)) for time in julie]
 	sanitized_mikey = [float(sanitize(time)) for time in mikey]
 	sanitized_sarah = [float(sanitize(time)) for time in sarah]
-
-	print(sorted(sanitized_james))
-	print(sorted(sanitized_julie))
-	print(sorted(sanitized_mikey))
-	print(sorted(sanitized_sarah))
+	
+	james_sorted = unify(sorted(sanitized_james))
+	julie_sorted = unify(sorted(sanitized_julie))
+	mikey_sorted = unify(sorted(sanitized_mikey))
+	sarah_sorted = unify(sorted(sanitized_sarah))
+	print(james_sorted[0:3])
+	print(julie_sorted[0:3])
+	print(mikey_sorted[0:3])
+	print(sarah_sorted[0:3])
 #This will handle any error during the file I/O
 except IOError as IOerr:
 	print("File Err:" + str(IOerr))
