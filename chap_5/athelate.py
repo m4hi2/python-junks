@@ -7,7 +7,7 @@ james = [ ]
 julie = [ ]
 mikey = [ ]
 sarah = [ ]
-def sanitize(time_string):
+def sanitize(time_string): #takes tring input then converts it to a '.' seperator if the seperator is either ":" or '-'
 	if '-' in time_string:
 		splitter = '-'
 	elif ':' in time_string:
