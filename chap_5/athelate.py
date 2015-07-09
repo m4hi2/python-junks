@@ -29,16 +29,17 @@ try:
 		julie.extend(julie_data.readline().strip().split(",")) #2 strips off new line and white spaces
 		mikey.extend(mikey_data.readline().strip().split(",")) #3 splits on ','
 		sarah.extend(sarah_data.readline().strip().split(","))
-#Now I'll print the fastest time for each of the runners 
+#Will format the time with '.' seperator excluding others
 	sanitized_james = [float(sanitize(time)) for time in james]
 	sanitized_julie = [float(sanitize(time)) for time in julie]
 	sanitized_mikey = [float(sanitize(time)) for time in mikey]
 	sanitized_sarah = [float(sanitize(time)) for time in sarah]
-	
+#Will create unique list, so that no entry has it's duplicate
 	james_sorted = unify(sorted(sanitized_james))
 	julie_sorted = unify(sorted(sanitized_julie))
 	mikey_sorted = unify(sorted(sanitized_mikey))
 	sarah_sorted = unify(sorted(sanitized_sarah))
+#Will print the 3 fastest entry
 	print(james_sorted[0:3])
 	print(julie_sorted[0:3])
 	print(mikey_sorted[0:3])
