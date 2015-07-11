@@ -22,20 +22,10 @@ try:
 		julie.extend(julie_data.readline().strip().split(",")) #2 strips off new line and white spaces
 		mikey.extend(mikey_data.readline().strip().split(",")) #3 splits on ','
 		sarah.extend(sarah_data.readline().strip().split(","))
-#Will format the time with '.' seperator excluding others
-	sanitized_james = [float(sanitize(time)) for time in james]
-	sanitized_julie = [float(sanitize(time)) for time in julie]
-	sanitized_mikey = [float(sanitize(time)) for time in mikey]
-	sanitized_sarah = [float(sanitize(time)) for time in sarah]
-#Will print the 3 fastest entry
-	print("james:" ,end= '')
-	print(sorted(set(sanitized_james))[0:3])
-	print('julie:' ,end= "")
-	print(sorted(set(sanitized_julie))[0:3])
-	print("mikey:", end = '' )
-	print(sorted(set(sanitized_mikey))[0:3])
-	print("sarah:", end = "")
-	print(sorted(set(sanitized_sarah))[0:3])
+		print("james:",sorted(set([sanitize(t) for t in james]))[0:3])
+		print("julie:",sorted(set(sanitize(t) for t in julie))[0:3])
+		print("mikey:",sorted(set(sanitize(t) for t in mikey))[0:3])
+		print("sarah:",sorted(set([sanitize(t) for t in sarah]))[0:3])
 #This will handle any error during the file I/O
 except IOError as IOerr:
 	print("File Err:" + str(IOerr))
