@@ -16,18 +16,21 @@ def sanitize(time_string): #takes tring input then converts it to a '.' seperato
 		return time_string
 	(mins, secs) = time_string.split(splitter)
 	return mins + "." + secs 
-try:
-	with open("james.txt") as james_data, open("julie.txt") as julie_data, open("mikey.txt") as mikey_data,open("sarah.txt") as sarah_data: #oepns all the files
-		james.extend(james_data.readline().strip().split(",")) #1 read a line from the file
-		julie.extend(julie_data.readline().strip().split(",")) #2 strips off new line and white spaces
-		mikey.extend(mikey_data.readline().strip().split(",")) #3 splits on ','
-		sarah.extend(sarah_data.readline().strip().split(","))
-		print("james:",sorted(set([sanitize(t) for t in james]))[0:3])
-		print("julie:",sorted(set(sanitize(t) for t in julie))[0:3])
-		print("mikey:",sorted(set(sanitize(t) for t in mikey))[0:3])
-		print("sarah:",sorted(set([sanitize(t) for t in sarah]))[0:3])
-#This will handle any error during the file I/O
-except IOError as IOerr:
-	print("File Err:" + str(IOerr))
-except ValueError as verr:
-	print("Valu Err:" + str(verr))
+
+def get_data(filename):
+	try:
+		with open(filename) as file:
+			return file.readline().strip().split(",")
+	except IOError as IOerr:
+		print("Where's ma file bae?" +  str(IOerr))
+		return None
+
+james = get_data("james.txt")
+julie = get_data("julie.txt")
+mikey = get_data("mikey.txt")
+sarah = get_data("sarah.txt")
+
+print("james:",sorted(set([sanitize(t) for t in james]))[0:3])
+print("julie:",sorted(set(sanitize(t) for t in julie))[0:3])
+print("mikey:",sorted(set(sanitize(t) for t in mikey))[0:3])
+print("sarah:",sorted(set([sanitize(t) for t in sarah]))[0:3])
