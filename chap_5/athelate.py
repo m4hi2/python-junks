@@ -13,18 +13,30 @@ def sanitize(time_string):
 		return time_string
 	(mins, secs) = time_string.split(splitter)
 	return mins + "." + secs 
+#Defining class "Athlete" for all the Athletes :D
+class Athlete():
+	"""docstring for Athlete"""
+	def __init__(self, name, dob=None, time= []):
+		super(Athlete, self).__init__()
+		self.name = name
+		self.dob = dob
+		self.time = time
+	def top3(self, time):
+		return sorted(sanitize(t) for t in time)[0:3]
+
 #Function to raed file's line from the drive and split it on comma starts 
 def get_data(filename):
 	try:
 		with open(filename) as file:
 			file_data = file.readline().strip().split(",")
-			return {
-							'Name' : file_data.pop(0),
-						  'DoB' : file_data.pop(0), 
-						  'Times': str(sorted(sanitize(t) for t in file_data)[0:3])
-						 }
+			name = file_data.pop(0)
+			dob = file_data.pop(0)
+			time = file_data
+			return Athlete(name, dob, time)
+
+
 	except IOError as IOerr:
 		print("Where's ma file bae?" +  str(IOerr))
 		return None
 sarah = get_data("sarah2.txt")
-print(sarah["Name"] +"'s fastest times are:" + sarah["Times"])
+print(sarah.name + "'s top 3 times are" + str(sarah.top3(sarah.time)))
