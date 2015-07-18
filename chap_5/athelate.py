@@ -38,7 +38,7 @@ def get_data(filename):
 	try:
 		with open(filename) as file: #Opens up the file assigned to a variable, named "file"
 			file_data = file.readline().strip().split(",") #Reads a line (a single line in this case) and stips and splits on ","
-			return Athlete (file_data.pop(0), file_data.pop(0), file_data)
+			return Athlete (file_data.pop(0), file_data.pop(0), set(file_data))
 			#returns a object with name, date_of_birth and times
 	except IOError as IOerr:
 		#handles any I/O Error if the file is missing or something else
