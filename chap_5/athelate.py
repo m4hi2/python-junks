@@ -29,10 +29,7 @@ def get_data(filename):
 	try:
 		with open(filename) as file:
 			file_data = file.readline().strip().split(",")
-			name = file_data.pop(0)
-			dob = file_data.pop(0)
-			time = file_data
-			return Athlete(name, dob, time)
+			return Athlete (file_data.pop(0), file_data.pop(0), file_data)
 
 
 	except IOError as IOerr:
