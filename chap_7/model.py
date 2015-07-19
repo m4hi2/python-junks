@@ -1,3 +1,4 @@
+import pickle #This perticular program needs to pickle data
 #Takes string input then converts it to a '.' seperator if the seperator is either ":" or '-'
 def sanitize(time_string): 
 	'''The raw data "times" have either "-" or ":" or "." seperator which is not a good thing for the sort or 
@@ -32,4 +33,17 @@ def get_data(filename):
 	except IOError as IOerr:
 		#handles any I/O Error if the file is missing or something else
 		print("Where's ma file bae?" +  str(IOerr)) #Funny message to make no sense with
-		return None
+		return Non
+#Following function makes the way for saving the data into file with pickle
+def put_to_store(file_list):
+	all_athletes = {}
+	for each_file in file_list:
+		athlete = get_data(each_file)
+		all_athletes[athlete.name] = athlete
+	try:
+		with open("athletes.picckle", "wb") as file:
+			pickle.dump(all_athletes, file)
+	except IOError as IOerr:
+		print("File Error in put_to_store():" +str(IOerr))
+	return all_athletes
+	
