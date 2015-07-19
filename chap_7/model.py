@@ -41,9 +41,17 @@ def put_to_store(file_list):
 		athlete = get_data(each_file)
 		all_athletes[athlete.name] = athlete
 	try:
-		with open("athletes.picckle", "wb") as file:
+		with open("athletes.pickle", "wb") as file:
 			pickle.dump(all_athletes, file)
 	except IOError as IOerr:
 		print("File Error in put_to_store():" +str(IOerr))
 	return all_athletes
-	
+#Following function can easily fetch pickled data from the pickle file
+def get_from_store(file):
+	all_athletes = {}
+	try:
+		with open("athletes.pickle", 'wb') as file:
+			all_athletes = pickle.load(file)
+	except IOError as IOerr:
+		print ("File Error in get_from_store():" + str(IOerr))
+	return all_athletes
