@@ -16,6 +16,7 @@ def sanitize(time_string):
 	(mins, secs) = time_string.split(splitter)
 	return mins + "." + secs #The time is retuned with "." seperator string value
 #Defining class "Athlete" for all the Athletes :D
+#This class "MUST" be initialized in get_data() function, otherwise things won't work actually
 class AthleteList(list):
 	"""docstring for AthleteList"""
 	def __init__(self, name, dob = None, time = []):
@@ -25,7 +26,8 @@ class AthleteList(list):
 		self.extend(time)
 	def top3(self):
 		return sorted(sanitize(t) for t in self)[0:3]		
-#Function to raed file's line from the drive and split it on comma starts 
+#Function to raed file's line from the drive and split it on comma 
+#This function also returns an object to work on
 def get_data(filename):
 	try:
 		with open(filename) as file: #Opens up the file assigned to a variable, named "file"
